@@ -1,8 +1,31 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="34.40000610351562" minHeight="0.0" prefHeight="30.400006103515626" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="316.0000061035156" minHeight="10.0" prefHeight="172.79999389648438" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="274.6000122070312" minHeight="10.0" prefHeight="197.39999389648435" vgrow="SOMETIMES" />
+  </rowConstraints>
+      <TableView prefHeight="200.0" prefWidth="592.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
+        <columns>
+          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="First Name" />
+          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Last Name" />
+            <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Phone Number" />
+            <TableColumn maxWidth="600" minWidth="400" prefWidth="400" text="Notes" />
+        </columns>
+      </TableView>
+      <HBox prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: red;" GridPane.columnSpan="4" />
 </GridPane>
