@@ -9,7 +9,10 @@
 
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import datamodel.Contact?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,12 +24,27 @@
     <RowConstraints maxHeight="316.0000061035156" minHeight="10.0" prefHeight="172.79999389648438" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="274.6000122070312" minHeight="10.0" prefHeight="197.39999389648435" vgrow="SOMETIMES" />
   </rowConstraints>
-      <TableView prefHeight="200.0" prefWidth="592.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="592.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
         <columns>
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="First Name" />
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Last Name" />
-            <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Phone Number" />
-            <TableColumn maxWidth="600" minWidth="400" prefWidth="400" text="Notes" />
+          <TableColumn fx:id="firstCol" maxWidth="300" minWidth="200" prefWidth="200" text="First Name">
+          <cellValueFactory><PropertyValueFactory property="firstName" />
+          </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="secondCol" maxWidth="300" minWidth="200" prefWidth="200" text="Last Name">
+            <cellValueFactory><PropertyValueFactory property="lastName" />
+            </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="thirdCol" maxWidth="300" minWidth="200" prefWidth="200" text="Phone Number">
+            <cellValueFactory><PropertyValueFactory property="phoneNumber" />
+            </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="lastCol" maxWidth="600" minWidth="400" prefWidth="400" text="Notes">
+            <cellValueFactory><PropertyValueFactory property="notes" />
+            </cellValueFactory>
+          </TableColumn>
+
         </columns>
       </TableView>
 

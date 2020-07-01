@@ -4,4 +4,5 @@ module SimpleContactApplication {
     requires java.xml;
 
     opens sample;
+    opens datamodel;
 }
