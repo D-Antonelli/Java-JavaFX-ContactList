@@ -2,12 +2,18 @@ package sample;
 
 import datamodel.Contact;
 import datamodel.ContactData;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.fxml.FXMLLoader;
 
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+
+import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -17,33 +23,33 @@ public class Controller {
     private TableView<Contact> tableView;
 
     @FXML
-    private TableColumn<Contact, String> firstCol;
+    private MenuItem addBtn;
 
     @FXML
-    private TableColumn<Contact, String> secondCol;
-
-    @FXML
-    private TableColumn<Contact, String> thirdCol;
-
-    @FXML
-    private TableColumn<Contact, String> lastCol;
-
-    private ArrayList<Contact> contactArrayList;
+    private GridPane gridPane;
 
 
     public void initialize() {
-        contactArrayList = new ArrayList<>();
+        ArrayList<Contact> contactArrayList = new ArrayList<>();
 
-        Contact firstContact = new Contact();
-        firstContact.setFirstName("Derya");
-        firstContact.setLastName("Aydin");
-        firstContact.setPhoneNumber("0984647");
-        firstContact.setNotes("Personal");
+        contactArrayList.add(new Contact("Luca", "Antonelli", "0755546776", "My spouse"));
+        contactArrayList.add(new Contact("Leyla", "Aydin", "9093774783", "Mom's cellular phone number"));
 
-        contactArrayList.add(firstContact);
         ContactData.getInstance().getContacts().setAll(contactArrayList);
         tableView.setItems(ContactData.getInstance().getContacts());
 
+    }
+
+    public void handleAddContact() throws IOException {
+        Dialog<Contact> dialog = new Dialog<>();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ContactDialog.fxml"));
+        //ContactDialog contactDialogController = fxmlLoader.getController();
+        dialog.getDialogPane().setContent(fxmlLoader.load());
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        dialog.initOwner(gridPane.getScene().getWindow());
+        dialog.setTitle("Add new contact");
+        dialog.show();
     }
 
 
