@@ -18,7 +18,7 @@
             <font>
                <Font name="Alef Regular" size="12.0" />
             </font></Label>
-          <TextField promptText="Please enter your first name" GridPane.columnIndex="1" GridPane.rowIndex="0">
+          <TextField fx:id="firstName" promptText="Please enter your first name" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <GridPane.margin>
                <Insets bottom="8.0" />
             </GridPane.margin></TextField>
@@ -29,7 +29,7 @@
             <font>
                <Font name="Alef Regular" size="12.0" />
             </font></Label>
-          <TextField promptText="Please enter your last name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <TextField fx:id="lastName" promptText="Please enter your last name" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
                <Insets bottom="8.0" />
             </GridPane.margin></TextField>
@@ -40,7 +40,7 @@
             <font>
                <Font name="Alef Regular" size="12.0" />
             </font></Label>
-          <TextField promptText="xxx-xx-xx" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <TextField fx:id="phoneNumber" promptText="xxx-xx-xx" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                <Insets bottom="8.0" />
             </GridPane.margin></TextField>
@@ -48,7 +48,7 @@
             <font>
                <Font name="Alef Regular" size="12.0" />
             </font></Label>
-          <TextArea promptText="Please enter your notes" style="-fx-pref-row-count: 3;" GridPane.columnIndex="1" GridPane.rowIndex="3" wrapText="true" />
+          <TextArea fx:id="notes" promptText="Please enter your notes" style="-fx-pref-row-count: 3;" GridPane.columnIndex="1" GridPane.rowIndex="3" wrapText="true" />
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
