@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<DialogPane headerText="Please enter info and press 'OKAY' or 'CANCEL' to go back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ContactDialog">
+    <header>
+
+    </header>
+    <content>
+      <GridPane alignment="CENTER" prefWidth="480.0">
+          <Label minWidth="-Infinity" text="First Name: " GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+               <Insets bottom="8.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Alef Regular" size="12.0" />
+            </font></Label>
+          <TextField promptText="Please enter your first name" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <GridPane.margin>
+               <Insets bottom="8.0" />
+            </GridPane.margin></TextField>
+          <Label minHeight="-Infinity" text="Last Name: " GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
+               <Insets bottom="8.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Alef Regular" size="12.0" />
+            </font></Label>
+          <TextField promptText="Please enter your last name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+               <Insets bottom="8.0" />
+            </GridPane.margin></TextField>
+          <Label minWidth="-Infinity" text="Phone Number: " GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
+               <Insets bottom="8.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Alef Regular" size="12.0" />
+            </font></Label>
+          <TextField promptText="xxx-xx-xx" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+               <Insets bottom="8.0" />
+            </GridPane.margin></TextField>
+          <Label text="Notes: " GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <font>
+               <Font name="Alef Regular" size="12.0" />
+            </font></Label>
+          <TextArea promptText="Please enter your notes" style="-fx-pref-row-count: 3;" GridPane.columnIndex="1" GridPane.rowIndex="3" wrapText="true" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints percentHeight="0.0" prefHeight="100.0" />
+         </rowConstraints>
+      </GridPane>
+    </content>
+</DialogPane>
