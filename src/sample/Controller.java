@@ -2,9 +2,12 @@ package sample;
 
 import datamodel.Contact;
 import datamodel.ContactData;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,17 +27,12 @@ public class Controller {
 
 
     public void initialize() {
-        //ArrayList<Contact> contactArrayList = new ArrayList<>();
-
-        //contactArrayList.add(new Contact("Luca", "Antonelli", "0755546776", "My spouse"));
-        //contactArrayList.add(new Contact("Leyla", "Aydin", "9093774783", "Mom's cellular phone number"));
-
-        //ContactData.getInstance().getContacts().setAll(contactArrayList);
-        tableView.setItems(ContactData.getInstance().getContacts());
-
+        //ContactData.getInstance().getContacts().clear();
+        //display row data
+        ObservableList<Contact> list = ContactData.getInstance().getContacts();
+        tableView.setItems(list);
     }
 
-    //TEST DIFFERENT SITUATIONS WITH CONTACT DIALOG
 
     public void handleAddContact() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ContactDialog.fxml"));
@@ -49,25 +47,24 @@ public class Controller {
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
+        //form data validation
+        final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
+        btOk.addEventFilter(ActionEvent.ACTION, event -> {
+            //if none of the fields are empty, contact is saved
+            boolean isSaved = contactDialogController.saveContact();
+            if (!isSaved) {
+                event.consume();
+            }
+        });
+
         Optional<ButtonType> result = dialog.showAndWait();
 
-        try {
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                contactDialogController.enterContactData();
-            }
-            else if(result.isPresent() && result.get() == ButtonType.CANCEL) {
-                dialog.close();
-            } else {
+        if(result.isPresent() && result.get() == ButtonType.CANCEL) {
                 dialog.close();
             }
 
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
         }
-
-
-
     }
 
 
-}
+
