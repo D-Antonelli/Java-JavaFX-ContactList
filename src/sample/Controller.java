@@ -7,10 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -31,6 +29,9 @@ public class Controller {
         //display row data
         ObservableList<Contact> list = ContactData.getInstance().getContacts();
         tableView.setItems(list);
+
+        //responsive table view layout
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
 

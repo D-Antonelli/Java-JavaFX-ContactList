@@ -11,17 +11,17 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="gridPane"  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="34.40000610351562" minHeight="0.0" prefHeight="30.400006103515626" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="316.0000061035156" minHeight="10.0" prefHeight="172.79999389648438" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="274.6000122070312" minHeight="10.0" prefHeight="197.39999389648435" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="34.40000610351562"  prefHeight="30.400006103515626" vgrow="NEVER" />
+    <RowConstraints minHeight="316.0000061035156"  prefHeight="172.79999389648438" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="274.6000122070312"  prefHeight="197.39999389648435" vgrow="SOMETIMES" />
   </rowConstraints>
       <TableView fx:id="tableView" prefHeight="200.0" prefWidth="592.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
         <columns>
@@ -39,7 +39,7 @@
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="600" minWidth="400" prefWidth="400" text="Notes">
+          <TableColumn minWidth="400" maxWidth="800" text="Notes">
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
