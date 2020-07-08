@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-
-<GridPane fx:id="gridPane"  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
@@ -19,11 +14,11 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="34.40000610351562"  prefHeight="30.400006103515626" vgrow="NEVER" />
-    <RowConstraints minHeight="316.0000061035156"  prefHeight="172.79999389648438" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="274.6000122070312"  prefHeight="197.39999389648435" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="34.40000610351562" prefHeight="30.400006103515626" vgrow="NEVER" />
+    <RowConstraints minHeight="316.0000061035156" prefHeight="172.79999389648438" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="274.6000122070312" prefHeight="197.39999389648435" vgrow="SOMETIMES" />
   </rowConstraints>
-      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="592.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
+      <TableView fx:id="tableView" prefHeight="592.0" prefWidth="767.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
         <columns>
           <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="First Name">
           <cellValueFactory><PropertyValueFactory property="firstName" />
@@ -39,7 +34,7 @@
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn minWidth="400" maxWidth="800" text="Notes">
+          <TableColumn maxWidth="800" minWidth="400" text="Notes">
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
@@ -47,11 +42,36 @@
         </columns>
       </TableView>
 
-  <MenuBar GridPane.columnIndex="0" GridPane.rowIndex="0" maxWidth="90">
-    <Menu text="Contacts">
-      <MenuItem onAction="#handleAddContact" text="Add"/>
-      <MenuItem text="Edit"/>
-      <MenuItem text="Delete"/>
-    </Menu>
-  </MenuBar>
+  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0">
+    <GridPane.margin>
+      <Insets left="8.0" />
+    </GridPane.margin>
+    <MenuBar maxWidth="90">
+      <Menu text="Menu" style="-fx-font: 14px Calibri">
+        <MenuItem onAction="#handleAdd" text="Add new.." />
+        <MenuItem text="Edit" />
+        <MenuItem text="Delete" />
+      </Menu>
+    </MenuBar>
+    <Label fx:id="totalNumOfContacts" />
+    <Label text="Total">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font></Label>
+  </HBox>
+
+  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+    <Label text="Sort by: ">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font></Label>
+    <ChoiceBox>
+    </ChoiceBox>
+  </HBox>
+
+
+
 </GridPane>
