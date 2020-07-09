@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+
 <GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
@@ -20,21 +21,21 @@
   </rowConstraints>
       <TableView fx:id="tableView" prefHeight="592.0" prefWidth="767.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
         <columns>
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="First Name">
+          <TableColumn fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" text="First Name" sortable="false">
           <cellValueFactory><PropertyValueFactory property="firstName" />
           </cellValueFactory>
           </TableColumn>
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Last Name">
+          <TableColumn fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" text="Last Name" sortable="false">
             <cellValueFactory><PropertyValueFactory property="lastName" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Phone Number">
+          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Phone Number" sortable="false">
             <cellValueFactory><PropertyValueFactory property="phoneNumber" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="800" minWidth="400" text="Notes">
+          <TableColumn maxWidth="800" minWidth="400" text="Notes" sortable="false">
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
@@ -47,7 +48,7 @@
       <Insets left="8.0" />
     </GridPane.margin>
     <MenuBar maxWidth="90">
-      <Menu text="Menu" style="-fx-font: 14px Calibri">
+      <Menu style="-fx-font: 14px Calibri" text="Menu">
         <MenuItem onAction="#handleAdd" text="Add new.." />
         <MenuItem text="Edit" />
         <MenuItem text="Delete" />
@@ -68,10 +69,7 @@
          <font>
             <Font name="Calibri" size="14.0" />
          </font></Label>
-    <ChoiceBox>
+    <ChoiceBox fx:id="choiceBox">
     </ChoiceBox>
   </HBox>
-
-
-
 </GridPane>
