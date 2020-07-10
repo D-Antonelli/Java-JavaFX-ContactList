@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
@@ -21,21 +20,21 @@
   </rowConstraints>
       <TableView fx:id="tableView" prefHeight="592.0" prefWidth="767.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
         <columns>
-          <TableColumn fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" text="First Name" sortable="false">
+          <TableColumn fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="First Name">
           <cellValueFactory><PropertyValueFactory property="firstName" />
           </cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" text="Last Name" sortable="false">
+          <TableColumn fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Last Name">
             <cellValueFactory><PropertyValueFactory property="lastName" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" text="Phone Number" sortable="false">
+          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Phone Number">
             <cellValueFactory><PropertyValueFactory property="phoneNumber" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="800" minWidth="400" text="Notes" sortable="false">
+          <TableColumn maxWidth="800" minWidth="400" sortable="false" text="Notes">
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
@@ -48,14 +47,16 @@
       <Insets left="8.0" />
     </GridPane.margin>
     <MenuBar maxWidth="90">
-      <Menu style="-fx-font: 14px Calibri" text="Menu">
+      <Menu style="-fx-font: 14px Calibri" text="Contact">
         <MenuItem onAction="#handleAdd" text="Add new.." />
-        <MenuItem text="Edit" />
-        <MenuItem text="Delete" />
+          <MenuItem onAction="#handleEdit" text="Edit" />
       </Menu>
     </MenuBar>
-    <Label fx:id="totalNumOfContacts" />
-    <Label text="Total">
+    <Label fx:id="totalNumOfContacts" text="12,000" textFill="#5f5e5e" translateX="45.0" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font></Label>
+    <Label text="Total" textFill="#5f5e5e">
          <HBox.margin>
             <Insets left="50.0" />
          </HBox.margin>

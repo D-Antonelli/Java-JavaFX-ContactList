@@ -34,6 +34,9 @@ public class Controller {
     @FXML
     private ChoiceBox<String> choiceBox;
 
+    @FXML
+    private Label totalNumOfContacts;
+
     private SortedList<Contact> sortedContacts;
 
 
@@ -43,9 +46,14 @@ public class Controller {
         ObservableList<Contact> list = ContactData.getInstance().getContacts();
         tableView.setItems(list);
 
+        //get total number of saved contacts
+        String size = String.valueOf(list.size());
+        totalNumOfContacts.setText(size);
 
         //responsive table view layout
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableView.getSelectionModel().selectFirst();
+        System.out.println(tableView.getSelectionModel().getFocusedIndex());
 
         //set choicebox
         choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Default"));
@@ -65,34 +73,43 @@ public class Controller {
                         tableView.getSortOrder().add(firstNameCol);
                         firstNameCol.setSortable(true);
                         firstNameCol.setSortType(TableColumn.SortType.ASCENDING);
+                        tableView.getSelectionModel().selectFirst();
                         break;
 
                     case "Last Name":
                         tableView.getSortOrder().clear();
                         firstNameCol.setSortable(false);
-
                         tableView.getSortOrder().add(secondNameCol);
                         secondNameCol.setSortable(true);
                         secondNameCol.setSortType(TableColumn.SortType.ASCENDING);
+                        tableView.getSelectionModel().selectFirst();
                         break;
 
                     case "Default":
                         tableView.setItems(list);
+                        tableView.getSelectionModel().selectFirst();
                         break;
                 }
             }
         });
+
     }
 
 
-    public void handleAdd() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ContactDialog.fxml"));
+    public void handleAdd()  {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewContactDialog.fxml"));
         Dialog<ButtonType> dialog = new Dialog<>();
 
-        dialog.getDialogPane().setContent(fxmlLoader.load());
-        dialog.initOwner(gridPane.getScene().getWindow());
-        dialog.setTitle("Add new contact");
-        ContactDialog contactDialogController = fxmlLoader.getController();
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.initOwner(gridPane.getScene().getWindow());
+            dialog.setTitle("Add new contact");
+        }
+        catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        NewContactDialog newContactDialogController = fxmlLoader.getController();
 
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
@@ -101,7 +118,7 @@ public class Controller {
         final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
         btOk.addEventFilter(ActionEvent.ACTION, event -> {
             //if none of the fields are empty, contact is saved
-            boolean isSaved = contactDialogController.saveContact();
+            boolean isSaved = newContactDialogController.saveContact();
             if (!isSaved) {
                 event.consume();
             }
@@ -114,6 +131,28 @@ public class Controller {
             }
 
         }
+
+    public void handleEdit()  {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditContactDialog.fxml"));
+        Dialog<ButtonType> dialog = new Dialog<>();
+
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.initOwner(gridPane.getScene().getWindow());
+            dialog.setTitle("Edit existing contact");
+        }
+        catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        EditContactDialog editController = fxmlLoader.getController();
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        dialog.showAndWait();
+
+    }
+
     }
 
 
