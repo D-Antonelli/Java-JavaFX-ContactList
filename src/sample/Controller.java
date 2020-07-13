@@ -53,7 +53,6 @@ public class Controller {
         //responsive table view layout
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableView.getSelectionModel().selectFirst();
-        System.out.println(tableView.getSelectionModel().getFocusedIndex());
 
         //set choicebox
         choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Default"));
@@ -146,10 +145,26 @@ public class Controller {
         }
 
         EditContactDialog editController = fxmlLoader.getController();
+
+        //get selection on tableview
+        Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
+
+        //copy selection details on edit dialog pane
+        editController.showSelected(selectedContact);
+
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
-        dialog.showAndWait();
+        Optional<ButtonType> result = dialog.showAndWait();
+
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            Contact editedContact = editController.getEditedContact();
+            ContactData.getInstance().editExistingContact(selectedContact, editedContact);
+        }
+
+        if(result.isPresent() && result.get() == ButtonType.CANCEL) {
+            dialog.close();
+        }
 
     }
 

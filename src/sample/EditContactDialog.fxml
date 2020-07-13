@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<DialogPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.EditContactDialog"
-            prefHeight="400.0" prefWidth="600.0"
-            headerText="Edit contact and press 'OKAY' or 'CANCEL' to go back">
+<DialogPane headerText="Edit contact information and press 'OKAY' or 'CANCEL' to go back" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditContactDialog">
 <header>
 
 </header>
     <content>
-        <HBox>
-            <Label text="Hi there!"/>
-        </HBox>
+        <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
+            <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="firstName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="lastName"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Phone number:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="phone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextArea fx:id="notes" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
     </content>
-
 </DialogPane>
