@@ -1,17 +1,13 @@
 package sample;
 
 import datamodel.Contact;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import datamodel.IsTextFieldNull;
 import javafx.fxml.FXML;
-import javafx.scene.control.Cell;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import java.util.ArrayList;
 
 
-public class EditContactDialog {
+public class EditContactDialog implements IsTextFieldNull {
 
     @FXML
     private TextField firstName;
@@ -25,23 +21,50 @@ public class EditContactDialog {
     @FXML
     private TextArea notes;
 
+    @FXML
+    private Label alert;
 
+    private final ArrayList<TextInputControl> textInputList;
 
+    public EditContactDialog()  {
+        textInputList = new ArrayList<>();
+    }
 
-    public Contact getEditedContact() {
-        firstName.textProperty().addListener((observable, oldValue, newValue) -> firstName.setText(newValue));
+    public Contact getModifiedContact() {
+        textInputList.add(firstName);
+        textInputList.add(lastName);
+        textInputList.add(notes);
+        textInputList.add(phone);
+        setInputListener(textInputList);
 
-        lastName.textProperty().addListener((observable, oldValue, newValue) -> lastName.setText(newValue));
+        if(isTextFieldNull(firstName) || isTextFieldNull(lastName) || isTextFieldNull(notes) || isTextFieldNull(phone)) {
+            alert.setText("Please fill all fields!");
+            return null;
+        } else {
+            return new Contact(firstName.getText(), lastName.getText(), phone.getText(), notes.getText());
+        }
+    }
 
-        phone.textProperty().addListener((observable, oldValue, newValue) -> phone.setText(newValue));
+    private void setInputListener(ArrayList<TextInputControl> list) {
+        list.forEach(textInputControl ->
+                textInputControl.textProperty().addListener(((observable, oldValue, newValue) ->
+                        textInputControl.setText(newValue))
+                ));
+    }
 
-        notes.textProperty().addListener((observable, oldValue, newValue) -> notes.setText(newValue));
-
-        return new Contact(firstName.getText(), lastName.getText(), phone.getText(), notes.getText());
+    @Override
+    public boolean isTextFieldNull(TextInputControl input) {
+        if(input.getText().trim().isEmpty() || input.getText().isEmpty()) {
+            input.styleProperty().set("-fx-border-color: red;");
+            return true;
+        }
+        input.styleProperty().set("-fx-border-color: green;");
+        return false;
     }
 
 
-    public void showSelected(Contact selectedContact) {
+
+    public void showSelectedContact(Contact selectedContact) {
         firstName.setText(selectedContact.getFirstName());
         lastName.setText(selectedContact.getLastName());
         phone.setText(selectedContact.getPhoneNumber());

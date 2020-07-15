@@ -150,17 +150,24 @@ public class Controller {
         Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
 
         //copy selection details on edit dialog pane
-        editController.showSelected(selectedContact);
+        editController.showSelectedContact(selectedContact);
 
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
-        Optional<ButtonType> result = dialog.showAndWait();
+        final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
+        btOk.addEventFilter(ActionEvent.ACTION, event -> {
+            //if one/all of the fields are empty, contact is not edited
+            Contact editedContact = editController.getModifiedContact();
+            if (editedContact == null) {
+                event.consume();
+                //otherwise, change contact details
+            } else {
+                ContactData.getInstance().editExistingContact(selectedContact, editedContact);
+            }
+        });
 
-        if(result.isPresent() && result.get() == ButtonType.OK) {
-            Contact editedContact = editController.getEditedContact();
-            ContactData.getInstance().editExistingContact(selectedContact, editedContact);
-        }
+        Optional<ButtonType> result = dialog.showAndWait();
 
         if(result.isPresent() && result.get() == ButtonType.CANCEL) {
             dialog.close();
