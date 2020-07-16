@@ -17,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.Objects;
 
 
 public class ContactData {
@@ -29,9 +30,9 @@ public class ContactData {
     private static final String PHONE_NUMBER = "phone_number";
     private static final String NOTES = "notes";
 
-    private ObservableList<Contact> contacts;
+    private final ObservableList<Contact> contacts;
 
-    private static ContactData instance = new ContactData();
+    private static final ContactData instance = new ContactData();
 
     public static ContactData getInstance() {
         return instance;
@@ -50,6 +51,10 @@ public class ContactData {
 
     public void addNewContact(Contact contact) {
         contacts.add(contact);
+    }
+
+    public int getIndex(Contact contact) {
+        return contacts.indexOf(contact);
     }
 
     public void editExistingContact(Contact oldContact, Contact newContact) {

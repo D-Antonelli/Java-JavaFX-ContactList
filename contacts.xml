@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contacts>
 <contact>
+	<first_name>Deryaaa</first_name>
+	<last_name>Antonelli</last_name>
+	<phone_number>898989</phone_number>
+	<notes>New</notes>
+</contact>
+<contact>
+	<first_name>Derya</first_name>
+	<last_name>Antonelli</last_name>
+	<phone_number>898989</phone_number>
+	<notes>New</notes>
+</contact>
+<contact>
+	<first_name>Luca</first_name>
+	<last_name>Antonelli</last_name>
+	<phone_number>2344543</phone_number>
+	<notes>wer</notes>
+</contact>
+<contact>
+	<first_name>Ann</first_name>
+	<last_name>Smith</last_name>
+	<phone_number>09378388</phone_number>
+	<notes>Business</notes>
+</contact>
+<contact>
+	<first_name>Adam</first_name>
+	<last_name>Smith</last_name>
+	<phone_number>898989</phone_number>
+	<notes>Business</notes>
+</contact>
+<contact>
 	<first_name>Derya</first_name>
 	<last_name>Antonelli</last_name>
 	<phone_number>898989</phone_number>
@@ -13,9 +43,87 @@
 	<notes>a</notes>
 </contact>
 <contact>
-	<first_name>DERRRR</first_name>
-	<last_name>YA</last_name>
-	<phone_number>ASSDD</phone_number>
-	<notes>OK</notes>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>a</first_name>
+	<last_name>a</last_name>
+	<phone_number>a</phone_number>
+	<notes>a</notes>
+</contact>
+<contact>
+	<first_name>b</first_name>
+	<last_name>b</last_name>
+	<phone_number>b</phone_number>
+	<notes>b</notes>
+</contact>
+<contact>
+	<first_name>x</first_name>
+	<last_name>x</last_name>
+	<phone_number>x</phone_number>
+	<notes>x</notes>
+</contact>
+<contact>
+	<first_name>sss</first_name>
+	<last_name>sss</last_name>
+	<phone_number>sss</phone_number>
+	<notes>sss</notes>
 </contact>
 </contacts>

@@ -14,7 +14,7 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="34.40000610351562" prefHeight="30.400006103515626" vgrow="NEVER" />
+    <RowConstraints minHeight="34.40000610351562" prefHeight="30.400006103515626" vgrow="NEVER"/>
     <RowConstraints minHeight="316.0000061035156" prefHeight="172.79999389648438" vgrow="SOMETIMES" />
     <RowConstraints minHeight="274.6000122070312" prefHeight="197.39999389648435" vgrow="SOMETIMES" />
   </rowConstraints>
@@ -38,7 +38,6 @@
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
-
         </columns>
       </TableView>
 

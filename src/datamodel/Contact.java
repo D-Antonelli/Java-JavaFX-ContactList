@@ -2,7 +2,8 @@ package datamodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.control.TextField;
+
+import java.util.Objects;
 
 
 public class Contact {
@@ -22,6 +23,19 @@ public class Contact {
         setPhoneNumber(phoneNumber);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contact)) return false;
+        Contact contact = (Contact) o;
+        return getFirstName().equals(contact.getFirstName()) &&
+                getLastName().equals(contact.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * Objects.hash(getFirstName(), getLastName());
+    }
 
     public void setFirstName(String firstName) {
         this.firstName.set(firstName);

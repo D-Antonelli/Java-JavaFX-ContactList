@@ -1,7 +1,6 @@
 package sample;
 
 import datamodel.Contact;
-import datamodel.ContactData;
 import datamodel.IsTextFieldNull;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -26,15 +25,13 @@ public class NewContactDialog implements IsTextFieldNull{
     @FXML
     private Label promptText;
 
-    public boolean saveContact() {
+    public Contact createNewContact() {
         //data validation
         if(isTextFieldNull(firstName) || isTextFieldNull(lastName) || isTextFieldNull(phoneNumber) || isTextFieldNull(notes)) {
             promptText.setText("Please fill all fields!");
-            return false;
+            return null;
         } else {
-            Contact newContact = new Contact(firstName.getText(), lastName.getText(), phoneNumber.getText(), notes.getText());
-            ContactData.getInstance().addNewContact(newContact);
-            return true;
+            return new Contact(firstName.getText(), lastName.getText(), phoneNumber.getText(), notes.getText());
         }
     }
 

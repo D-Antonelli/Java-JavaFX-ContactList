@@ -5,6 +5,7 @@ import datamodel.ContactData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -47,12 +48,22 @@ public class Controller {
         tableView.setItems(list);
 
         //get total number of saved contacts
-        String size = String.valueOf(list.size());
-        totalNumOfContacts.setText(size);
+        totalNumOfContacts.setText(String.valueOf(list.size()));
 
         //responsive table view layout
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
         tableView.getSelectionModel().selectFirst();
+
+        //reflect row changes into total num of contacts
+        tableView.getItems().addListener(new ListChangeListener<Contact>() {
+            @Override
+            public void onChanged(Change<? extends Contact> c) {
+                while(c.next()) {
+                    totalNumOfContacts.setText(String.valueOf(list.size()));
+                }
+            }
+        });
 
         //set choicebox
         choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Default"));
@@ -117,9 +128,14 @@ public class Controller {
         final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
         btOk.addEventFilter(ActionEvent.ACTION, event -> {
             //if none of the fields are empty, contact is saved
-            boolean isSaved = newContactDialogController.saveContact();
-            if (!isSaved) {
+            Contact newContact = newContactDialogController.createNewContact();
+
+            if (newContact == null) {
                 event.consume();
+            }
+
+            else {
+                ContactData.getInstance().addNewContact(newContact);
             }
         });
 
