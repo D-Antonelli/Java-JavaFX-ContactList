@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="34.40000610351562" prefHeight="30.400006103515626" vgrow="NEVER"/>
-    <RowConstraints minHeight="316.0000061035156" prefHeight="172.79999389648438" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="274.6000122070312" prefHeight="197.39999389648435" vgrow="SOMETIMES" />
-  </rowConstraints>
-      <TableView fx:id="tableView" prefHeight="592.0" prefWidth="767.0" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
+<GridPane fx:id="gridPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="45" vgrow="NEVER" />
+        <RowConstraints prefHeight="570" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <TableView fx:id="tableView" GridPane.columnSpan="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
           <TableColumn fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="First Name">
           <cellValueFactory><PropertyValueFactory property="firstName" />
@@ -45,7 +53,7 @@
     <GridPane.margin>
       <Insets left="8.0" />
     </GridPane.margin>
-    <MenuBar maxWidth="90">
+    <MenuBar>
       <Menu style="-fx-font: 14px Calibri" text="Contact">
         <MenuItem onAction="#handleAdd" text="Add new.." />
           <MenuItem onAction="#handleEdit" text="Edit" />

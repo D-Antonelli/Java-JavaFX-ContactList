@@ -37,13 +37,13 @@
 	<notes>New</notes>
 </contact>
 <contact>
-	<first_name>a</first_name>
+	<first_name>Edited</first_name>
 	<last_name>a</last_name>
 	<phone_number>a</phone_number>
 	<notes>a</notes>
 </contact>
 <contact>
-	<first_name>a</first_name>
+	<first_name>az</first_name>
 	<last_name>a</last_name>
 	<phone_number>a</phone_number>
 	<notes>a</notes>
@@ -125,5 +125,17 @@
 	<last_name>sss</last_name>
 	<phone_number>sss</phone_number>
 	<notes>sss</notes>
+</contact>
+<contact>
+	<first_name>c</first_name>
+	<last_name>c</last_name>
+	<phone_number>c</phone_number>
+	<notes>c</notes>
+</contact>
+<contact>
+	<first_name>z</first_name>
+	<last_name>z</last_name>
+	<phone_number>z</phone_number>
+	<notes>z</notes>
 </contact>
 </contacts>
