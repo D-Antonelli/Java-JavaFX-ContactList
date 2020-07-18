@@ -180,6 +180,7 @@ public class Controller {
                 //otherwise, change contact details
             } else {
                 ContactData.getInstance().editExistingContact(selectedContact, editedContact);
+                tableView.sort();
             }
         });
 
