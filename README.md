@@ -1,2 +1,5 @@
-# Java-JavaFX-ContactList
-A simple application to add, remove and edit contacts using JavaFX GUI and Scene Builder.
+ <img src="https://media.giphy.com/media/QVP5oUK9KKcHCJyjeJ/giphy.gif">
+ <br>
+  *Contact management application that help users save, edit, delete, and sort contacts*
+
+  
