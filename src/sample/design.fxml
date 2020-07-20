@@ -55,8 +55,9 @@
     </GridPane.margin>
     <MenuBar>
       <Menu style="-fx-font: 14px Calibri" text="Contact">
-        <MenuItem onAction="#handleAdd" text="Add new.." />
+          <MenuItem onAction="#handleAdd" text="Add new.." />
           <MenuItem onAction="#handleEdit" text="Edit" />
+          <MenuItem onAction="#handleDelete" text="Delete"/>
       </Menu>
     </MenuBar>
     <Label fx:id="totalNumOfContacts" text="12,000" textFill="#5f5e5e" translateX="45.0" HBox.hgrow="ALWAYS">

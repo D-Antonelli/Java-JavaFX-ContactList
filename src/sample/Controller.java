@@ -2,8 +2,6 @@ package sample;
 
 import datamodel.Contact;
 import datamodel.ContactData;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -69,37 +67,34 @@ public class Controller {
         choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Default"));
 
         //sort table columns according to selected choice
-        choiceBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                sortedContacts = new SortedList<>(ContactData.getInstance().getContacts());
-                tableView.setItems(sortedContacts);
-                sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            sortedContacts = new SortedList<>(ContactData.getInstance().getContacts());
+            tableView.setItems(sortedContacts);
+            sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
 
-                switch (newValue) {
-                    case "First Name":
-                        tableView.getSortOrder().clear();
-                        secondNameCol.setSortable(false);
-                        tableView.getSortOrder().add(firstNameCol);
-                        firstNameCol.setSortable(true);
-                        firstNameCol.setSortType(TableColumn.SortType.ASCENDING);
-                        tableView.getSelectionModel().selectFirst();
-                        break;
+            switch (newValue) {
+                case "First Name":
+                    tableView.getSortOrder().clear();
+                    secondNameCol.setSortable(false);
+                    tableView.getSortOrder().add(firstNameCol);
+                    firstNameCol.setSortable(true);
+                    firstNameCol.setSortType(TableColumn.SortType.ASCENDING);
+                    tableView.getSelectionModel().selectFirst();
+                    break;
 
-                    case "Last Name":
-                        tableView.getSortOrder().clear();
-                        firstNameCol.setSortable(false);
-                        tableView.getSortOrder().add(secondNameCol);
-                        secondNameCol.setSortable(true);
-                        secondNameCol.setSortType(TableColumn.SortType.ASCENDING);
-                        tableView.getSelectionModel().selectFirst();
-                        break;
+                case "Last Name":
+                    tableView.getSortOrder().clear();
+                    firstNameCol.setSortable(false);
+                    tableView.getSortOrder().add(secondNameCol);
+                    secondNameCol.setSortable(true);
+                    secondNameCol.setSortType(TableColumn.SortType.ASCENDING);
+                    tableView.getSelectionModel().selectFirst();
+                    break;
 
-                    case "Default":
-                        tableView.setItems(list);
-                        tableView.getSelectionModel().selectFirst();
-                        break;
-                }
+                case "Default":
+                    tableView.setItems(list);
+                    tableView.getSelectionModel().selectFirst();
+                    break;
             }
         });
 
@@ -192,7 +187,23 @@ public class Controller {
 
     }
 
+    public void handleDelete() {
+        //get selected contact
+        Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
+
+        //set confirmation alert
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete contact?");
+        alert.setHeaderText("Delete contact");
+
+        Optional<ButtonType> optional = alert.showAndWait();
+
+        if(optional.isPresent() && optional.get() == ButtonType.OK) {
+            ContactData.getInstance().deleteContact(selectedContact);
+        } else if(optional.isPresent() && optional.get() == ButtonType.CANCEL){
+            alert.close();
+        }
     }
+}
 
 
 

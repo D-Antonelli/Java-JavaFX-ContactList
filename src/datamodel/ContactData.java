@@ -53,7 +53,14 @@ public class ContactData {
         contacts.add(contact);
     }
 
-    public int getIndex(Contact contact) {
+    public void deleteContact(Contact contact) {
+        int index = getIndex(contact);
+        if(index >= 0) {
+            contacts.remove(contacts.get(index));
+        }
+    }
+
+    private int getIndex(Contact contact) {
         return contacts.indexOf(contact);
     }
 
