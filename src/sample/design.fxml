@@ -61,9 +61,6 @@
                <Point3D />
             </rotationAxis></Label>
     <Label text="Total" textFill="#5f5e5e">
-<!--         <HBox.margin>-->
-<!--            <Insets left="50.0" />-->
-<!--         </HBox.margin>-->
          <font>
             <Font name="Calibri" size="14.0" />
          </font></Label>
@@ -80,14 +77,14 @@
               <ChoiceBox fx:id="choiceBox">
               </ChoiceBox>
          <HBox.margin>
-            <Insets left="30.0" />
+            <Insets left="30.0"/>
          </HBox.margin>
       </HBox>
   </HBox>
 
 
 <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="0">
-    <TextField prefWidth="170.0" promptText="Type in to Search" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+    <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefWidth="170.0" promptText="Type in to Search" GridPane.columnIndex="3" GridPane.rowIndex="0" />
       <GridPane.margin>
          <Insets right="8.0" />
       </GridPane.margin>

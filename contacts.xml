@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contacts>
 <contact>
-	<first_name>Lin</first_name>
+	<first_name>Linda</first_name>
 	<last_name>Tylor</last_name>
 	<phone_number>09848837378</phone_number>
 	<notes>Manager</notes>
@@ -19,9 +19,21 @@
 	<notes>Spouse</notes>
 </contact>
 <contact>
-	<first_name>Derya</first_name>
-	<last_name>Antonelli</last_name>
-	<phone_number>90948999</phone_number>
-	<notes>Personal</notes>
+	<first_name>Dave</first_name>
+	<last_name>Gibbins</last_name>
+	<phone_number>07555124567</phone_number>
+	<notes>Company</notes>
+</contact>
+<contact>
+	<first_name>David</first_name>
+	<last_name>Hann</last_name>
+	<phone_number>087647737</phone_number>
+	<notes>Business</notes>
+</contact>
+<contact>
+	<first_name>Werter</first_name>
+	<last_name>Hansen</last_name>
+	<phone_number>098367336</phone_number>
+	<notes>Estate</notes>
 </contact>
 </contacts>

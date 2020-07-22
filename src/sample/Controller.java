@@ -5,11 +5,13 @@ import datamodel.ContactData;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
@@ -36,13 +38,19 @@ public class Controller {
     @FXML
     private Label totalNumOfContacts;
 
+    @FXML
+    private TextField searchField;
+
     private SortedList<Contact> sortedContacts;
 
+    private FilteredList<Contact> filteredContacts;
+
+    private ObservableList<Contact> list = ContactData.getInstance().getContacts();
 
     public void initialize() {
         //ContactData.getInstance().getContacts().clear();
         //display row data
-        ObservableList<Contact> list = ContactData.getInstance().getContacts();
+
         tableView.setItems(list);
 
         //get total number of saved contacts
@@ -68,7 +76,7 @@ public class Controller {
 
         //sort table columns according to selected choice
         choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            sortedContacts = new SortedList<>(ContactData.getInstance().getContacts());
+            sortedContacts = new SortedList<>(list);
             tableView.setItems(sortedContacts);
             sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
 
@@ -203,6 +211,19 @@ public class Controller {
             alert.close();
         }
     }
+
+
+    public void handleSearch(KeyEvent keyEvent) {
+        filteredContacts = new FilteredList<Contact>(list, p -> true);
+
+        filteredContacts.setPredicate(p ->
+                                        p.getFirstName().toLowerCase().startsWith(searchField.getText().toLowerCase().trim()) ||
+                                        p.getLastName().toLowerCase().startsWith(searchField.getText().toLowerCase().trim()) ||
+                                        p.getPhoneNumber().startsWith(searchField.getText().trim())
+                                        );
+        tableView.setItems(filteredContacts);
+    }
+
 }
 
 
