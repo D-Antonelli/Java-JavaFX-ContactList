@@ -1,9 +1,8 @@
 # Hello World! :raising_hand:
  <img src="https://media.giphy.com/media/qLeXLs6icdNYs/giphy.gif">
- <br><br>
+ <br>
  This is a basic contact management application that help users store, delete, edit, sort a contact/contacts.
  <br>
- 
  ## About the Project
  ![Project screenshot](https://media.giphy.com/media/QVP5oUK9KKcHCJyjeJ/giphy.gif)
  <br>
