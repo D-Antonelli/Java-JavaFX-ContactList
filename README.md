@@ -1,4 +1,4 @@
-#Hello World! :raising_hand:
+# Hello World! :raising_hand:
 <br>
 <br>
  <img src="https://media.giphy.com/media/qLeXLs6icdNYs/giphy.gif">
@@ -6,7 +6,7 @@
  This is a basic contact management application that help users store, delete, edit, sort a contact/contacts.
  <br>
  
- ##About the Project
+ ## About the Project
  <br>
  ![Project screenshot](https://media.giphy.com/media/QVP5oUK9KKcHCJyjeJ/giphy.gif)
  <br>
@@ -18,7 +18,7 @@
  * [JavaFX](https://openjfx.io/);
  * [Scene Builder](https://gluonhq.com/products/scene-builder/);
    
- ###Contact me
+ ### Contact me
  <br>
  Derya Antonelli - [Twitter](https://twitter.com/antonelli_a); derya.antonelli@gmail.com
  
