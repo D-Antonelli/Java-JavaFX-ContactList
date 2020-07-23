@@ -1,4 +1,4 @@
-[![commit activity](https://img.shields.io/github/commit-activity/w/D-Antonelli/Java-JavaFX-ContactList?color=green&style=plastic)]()
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/D-Antonelli/Java-JavaFX-ContactList?color=green&style=plastic)]()
 # Hello World! :raising_hand:
  <img src="https://media.giphy.com/media/qLeXLs6icdNYs/giphy.gif">
  
