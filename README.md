@@ -1,4 +1,5 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/D-Antonelli/Java-JavaFX-ContactList?color=green&style=plastic)]()
+[![Twitter](https://img.shields.io/twitter/follow/antonelli_a.svg?style=social&label=@antonelli_a)](https://twitter.com/antonelli_a)
 # Hello World! :raising_hand:
  <img src="https://media.giphy.com/media/qLeXLs6icdNYs/giphy.gif">
  
