@@ -36,4 +36,10 @@
 	<phone_number>098367336</phone_number>
 	<notes>Estate</notes>
 </contact>
+<contact>
+	<first_name>David</first_name>
+	<last_name>Ashtons</last_name>
+	<phone_number>0000000</phone_number>
+	<notes>Test</notes>
+</contact>
 </contacts>

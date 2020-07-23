@@ -1,3 +1,4 @@
+![](https://img.shields.io/github/commit-activity/w/D-Antonelli/Java-JavaFX-ContactList?color=green&style=plastic)
 # Hello World! :raising_hand:
  <img src="https://media.giphy.com/media/qLeXLs6icdNYs/giphy.gif">
  
@@ -12,6 +13,18 @@
  * [Java](https://www.oracle.com/java/technologies/);
  * [JavaFX](https://openjfx.io/);
  * [Scene Builder](https://gluonhq.com/products/scene-builder/);
+ 
+ ### Tasks List :clipboard:
+ - [x] Add new contact
+ - [x] Edit existing contact
+ - [x] Delete selected contact
+ - [x] Sort contacts
+ - [x] Search for contact
+ - [ ] Recreate UI design
+ 
+ ## Bugs fixed
+ - [x] While typing a word on search field, sort can be toggled.
+ - [ ] After completing search, if sort button is toggled, display sorted data according to choice. 
    
  ### Contact me
  Derya Antonelli - [Twitter](https://twitter.com/antonelli_a); derya.antonelli@gmail.com

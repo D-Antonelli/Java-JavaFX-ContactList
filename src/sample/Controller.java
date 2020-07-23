@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.Optional;
 
 
@@ -47,6 +48,8 @@ public class Controller {
 
     private ObservableList<Contact> list = ContactData.getInstance().getContacts();
 
+    private boolean isFilterToggled = false;
+
     public void initialize() {
         //ContactData.getInstance().getContacts().clear();
         //display row data
@@ -72,11 +75,18 @@ public class Controller {
         });
 
         //set choicebox
-        choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Default"));
+        choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Date Created"));
 
         //sort table columns according to selected choice
         choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            sortedContacts = new SortedList<>(list);
+
+            //While searching for data, allow sorting
+            if(isFilterToggled) {
+                sortedContacts = new SortedList<>(filteredContacts);
+            } else {
+                sortedContacts = new SortedList<>(list);
+            }
+
             tableView.setItems(sortedContacts);
             sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
 
@@ -99,8 +109,14 @@ public class Controller {
                     tableView.getSelectionModel().selectFirst();
                     break;
 
-                case "Default":
-                    tableView.setItems(list);
+                case "Date Created":
+                    //if searching, bring filter list. Else, show only list.
+                    if(isFilterToggled) {
+                        tableView.setItems(filteredContacts);
+                    } else {
+                        tableView.setItems(list);
+                    }
+
                     tableView.getSelectionModel().selectFirst();
                     break;
             }
@@ -214,6 +230,7 @@ public class Controller {
 
 
     public void handleSearch(KeyEvent keyEvent) {
+        isFilterToggled = true;
         filteredContacts = new FilteredList<Contact>(list, p -> true);
 
         filteredContacts.setPredicate(p ->
@@ -221,7 +238,12 @@ public class Controller {
                                         p.getLastName().toLowerCase().startsWith(searchField.getText().toLowerCase().trim()) ||
                                         p.getPhoneNumber().startsWith(searchField.getText().trim())
                                         );
+
         tableView.setItems(filteredContacts);
+
+        if(searchField.getText().isEmpty()) {
+            isFilterToggled = false;
+        }
     }
 
 }
