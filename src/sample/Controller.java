@@ -46,9 +46,11 @@ public class Controller {
 
     private FilteredList<Contact> filteredContacts;
 
-    private ObservableList<Contact> list = ContactData.getInstance().getContacts();
+    private final ObservableList<Contact> list = ContactData.getInstance().getContacts();
 
     private boolean isFilterToggled = false;
+
+    private boolean isSortToggled = false;
 
     public void initialize() {
         //ContactData.getInstance().getContacts().clear();
@@ -79,10 +81,11 @@ public class Controller {
 
         //sort table columns according to selected choice
         choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-
+            isSortToggled = true;
             //While searching for data, allow sorting
             if(isFilterToggled) {
                 sortedContacts = new SortedList<>(filteredContacts);
+
             } else {
                 sortedContacts = new SortedList<>(list);
             }
@@ -90,38 +93,41 @@ public class Controller {
             tableView.setItems(sortedContacts);
             sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
 
-            switch (newValue) {
-                case "First Name":
-                    tableView.getSortOrder().clear();
-                    secondNameCol.setSortable(false);
-                    tableView.getSortOrder().add(firstNameCol);
-                    firstNameCol.setSortable(true);
-                    firstNameCol.setSortType(TableColumn.SortType.ASCENDING);
-                    tableView.getSelectionModel().selectFirst();
-                    break;
-
-                case "Last Name":
-                    tableView.getSortOrder().clear();
-                    firstNameCol.setSortable(false);
-                    tableView.getSortOrder().add(secondNameCol);
-                    secondNameCol.setSortable(true);
-                    secondNameCol.setSortType(TableColumn.SortType.ASCENDING);
-                    tableView.getSelectionModel().selectFirst();
-                    break;
-
-                case "Date Created":
-                    //if searching, bring filter list. Else, show only list.
-                    if(isFilterToggled) {
-                        tableView.setItems(filteredContacts);
-                    } else {
-                        tableView.setItems(list);
-                    }
-
-                    tableView.getSelectionModel().selectFirst();
-                    break;
-            }
+            toggleChoiceBoxSelection(tableView, newValue, isFilterToggled);
         });
 
+    }
+
+    private void sortColumn(TableView<Contact> table, TableColumn<Contact, String> col) {
+        table.getSortOrder().clear();
+        table.getSortOrder().add(col);
+        col.setSortable(true);
+        col.setSortType(TableColumn.SortType.ASCENDING);
+        table.getSelectionModel().selectFirst();
+    }
+
+    private void toggleChoiceBoxSelection(TableView<Contact> table, String value, boolean isFilterToggled) {
+        switch (value) {
+            case "First Name":
+                sortColumn(tableView,firstNameCol);
+                break;
+
+            case "Last Name":
+                sortColumn(tableView, secondNameCol);
+                break;
+
+            case "Date Created":
+                //if typing on search area, show filter list. Else, show only list.
+                if(isFilterToggled) {
+                    table.setItems(filteredContacts);
+                } else {
+                    table.setItems(list);
+                }
+
+                table.getSelectionModel().selectFirst();
+                isSortToggled = false;
+                break;
+        }
     }
 
 
@@ -231,6 +237,7 @@ public class Controller {
 
     public void handleSearch(KeyEvent keyEvent) {
         isFilterToggled = true;
+
         filteredContacts = new FilteredList<Contact>(list, p -> true);
 
         filteredContacts.setPredicate(p ->
@@ -241,8 +248,13 @@ public class Controller {
 
         tableView.setItems(filteredContacts);
 
-        if(searchField.getText().isEmpty()) {
+        //When search field is cleared, if sort choice is toggled, display sorted data
+        if(searchField.getText().isEmpty() && isSortToggled) {
             isFilterToggled = false;
+            sortedContacts = new SortedList<>(list);
+            tableView.setItems(sortedContacts);
+            sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
+            toggleChoiceBoxSelection(tableView, choiceBox.getValue(), isFilterToggled);
         }
     }
 

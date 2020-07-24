@@ -42,4 +42,16 @@
 	<phone_number>0000000</phone_number>
 	<notes>Test</notes>
 </contact>
+<contact>
+	<first_name>Doug</first_name>
+	<last_name>Brick</last_name>
+	<phone_number>9099989</phone_number>
+	<notes>Test</notes>
+</contact>
+<contact>
+	<first_name>Daniel</first_name>
+	<last_name>Craig</last_name>
+	<phone_number>xxx</phone_number>
+	<notes>I know Daniel Craig</notes>
+</contact>
 </contacts>
