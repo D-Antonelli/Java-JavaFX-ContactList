@@ -25,7 +25,8 @@
  
  ## Bugs fixed 🐛
  - [x] While typing a word on search field, sort can be toggled.
- - [ ] After completing search, if sort button is toggled, display sorted data according to choice. 
+ - [x] After completing search, if sort button is toggled, display sorted data according to choice. 
+ - [ ] When a sort choice is toggled, if texting on search field, show sorted data.
    
  ### Contact me 📭
  Derya Antonelli - [Twitter](https://twitter.com/antonelli_a); derya.antonelli@gmail.com
