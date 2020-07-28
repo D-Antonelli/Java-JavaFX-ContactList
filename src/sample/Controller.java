@@ -15,7 +15,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.Optional;
 
 
@@ -48,9 +47,9 @@ public class Controller {
 
     private final ObservableList<Contact> list = ContactData.getInstance().getContacts();
 
-    private boolean isFilterToggled = false;
+    private boolean searchIsActive = false;
 
-    private boolean isSortToggled = false;
+    private boolean sortIsActive = false;
 
     public void initialize() {
         //ContactData.getInstance().getContacts().clear();
@@ -79,11 +78,11 @@ public class Controller {
         //set choicebox
         choiceBox.setItems(FXCollections.observableArrayList("First Name", "Last Name", "Date Created"));
 
-        //sort table columns according to selected choice
+        //sort table columns according to sort type
         choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            isSortToggled = true;
+            sortIsActive = true;
             //While searching for data, allow sorting
-            if(isFilterToggled) {
+            if(searchIsActive) {
                 sortedContacts = new SortedList<>(filteredContacts);
 
             } else {
@@ -93,7 +92,7 @@ public class Controller {
             tableView.setItems(sortedContacts);
             sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
 
-            toggleChoiceBoxSelection(tableView, newValue, isFilterToggled);
+            toggleChoiceBoxSelection(tableView, newValue, searchIsActive);
         });
 
     }
@@ -106,8 +105,9 @@ public class Controller {
         table.getSelectionModel().selectFirst();
     }
 
-    private void toggleChoiceBoxSelection(TableView<Contact> table, String value, boolean isFilterToggled) {
-        switch (value) {
+
+    private void toggleChoiceBoxSelection(TableView<Contact> table, String sortType, boolean isFilterToggled) {
+        switch (sortType) {
             case "First Name":
                 sortColumn(tableView,firstNameCol);
                 break;
@@ -123,9 +123,9 @@ public class Controller {
                 } else {
                     table.setItems(list);
                 }
-
+                //selection type 'date created' dismiss sort
                 table.getSelectionModel().selectFirst();
-                isSortToggled = false;
+                sortIsActive = false;
                 break;
         }
     }
@@ -236,7 +236,7 @@ public class Controller {
 
 
     public void handleSearch(KeyEvent keyEvent) {
-        isFilterToggled = true;
+        searchIsActive = true;
 
         filteredContacts = new FilteredList<Contact>(list, p -> true);
 
@@ -248,13 +248,22 @@ public class Controller {
 
         tableView.setItems(filteredContacts);
 
-        //When search field is cleared, if sort choice is toggled, display sorted data
-        if(searchField.getText().isEmpty() && isSortToggled) {
-            isFilterToggled = false;
+        //While sort is used, if search is entered, display sorted filter data
+        if(sortIsActive && !searchField.getText().isEmpty()) {
+            searchIsActive = true;
+            sortedContacts = new SortedList<>(filteredContacts);
+            tableView.setItems(sortedContacts);
+            sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
+            toggleChoiceBoxSelection(tableView, choiceBox.getValue(), searchIsActive);
+        }
+
+        //When search field is cleared, if sort is used, display sorted data
+        if(sortIsActive && searchField.getText().isEmpty()) {
+            searchIsActive = false;
             sortedContacts = new SortedList<>(list);
             tableView.setItems(sortedContacts);
             sortedContacts.comparatorProperty().bind(tableView.comparatorProperty());
-            toggleChoiceBoxSelection(tableView, choiceBox.getValue(), isFilterToggled);
+            toggleChoiceBoxSelection(tableView, choiceBox.getValue(), searchIsActive);
         }
     }
 
