@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:id="gridPane" prefHeight="602.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="gridPane" prefHeight="602.0" prefWidth="747.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
@@ -14,38 +14,38 @@
         <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints prefHeight="45" vgrow="NEVER" />
+        <RowConstraints prefHeight="70" vgrow="NEVER" />
         <RowConstraints prefHeight="570" vgrow="SOMETIMES" />
     </rowConstraints>
-    <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="1">
+    <TableView fx:id="tableView" stylesheets="@design.css" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="First Name">
-          <cellValueFactory><PropertyValueFactory property="firstName" />
+          <TableColumn styleClass="column" fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="First Name">
+          <cellValueFactory><PropertyValueFactory property="firstName"/>
           </cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Last Name">
+          <TableColumn styleClass="column" fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Last Name">
             <cellValueFactory><PropertyValueFactory property="lastName" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Phone Number">
+          <TableColumn styleClass="column" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Phone Number">
             <cellValueFactory><PropertyValueFactory property="phoneNumber" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn maxWidth="800" minWidth="400" sortable="false" text="Notes">
+          <TableColumn styleClass="column" maxWidth="800" minWidth="400" sortable="false" text="Notes">
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
         </columns>
       </TableView>
 
-  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+  <HBox alignment="CENTER_LEFT" style="-fx-padding: 10px;" stylesheets="@design.css" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.valignment="CENTER">
     <GridPane.margin>
       <Insets left="8.0" />
     </GridPane.margin>
-    <MenuBar>
-      <Menu style="-fx-font: 14px Calibri" text="Contact">
+    <MenuBar styleClass="contact-menu" stylesheets="@design.css">
+      <Menu text="Contact">
           <MenuItem onAction="#handleAdd" text="Add new.." />
           <MenuItem onAction="#handleEdit" text="Edit" />
           <MenuItem onAction="#handleDelete" text="Delete" />
@@ -53,16 +53,16 @@
     </MenuBar>
 
       <HBox alignment="CENTER" spacing="5.0" HBox.hgrow="SOMETIMES">
-    <Label fx:id="totalNumOfContacts" text="12,000" textFill="#5f5e5e" HBox.hgrow="ALWAYS">
+    <Label fx:id="totalNumOfContacts" style="-fx-text-fill: #f3f3f1; -fx-opacity: 0.7;" text="12,000" HBox.hgrow="ALWAYS">
          <font>
-            <Font name="Calibri" size="14.0" />
+            <Font name="Segoe UI Bold" size="16.0" />
          </font>
             <rotationAxis>
                <Point3D />
             </rotationAxis></Label>
-    <Label text="Total" textFill="#5f5e5e">
+    <Label style="-fx-text-fill: f3f3f1; -fx-opacity: 0.7;" text="Total" textFill="#5f5e5e">
          <font>
-            <Font name="Calibri" size="14.0" />
+            <Font name="Segoe UI Light" size="16.0" />
          </font></Label>
          <HBox.margin>
             <Insets left="15.0" />
@@ -70,20 +70,20 @@
       </HBox>
       
       <HBox alignment="CENTER" spacing="10.0" GridPane.valignment="CENTER">
-              <Label text="Sort by: ">
+              <Label style="-fx-text-fill: f3f3f1; -fx-opacity: 0.7;" text="Sort by: ">
                    <font>
-                      <Font name="Calibri" size="14.0" />
+                      <Font name="Segoe UI Light" size="16.0" />
                    </font></Label>
               <ChoiceBox fx:id="choiceBox">
               </ChoiceBox>
          <HBox.margin>
-            <Insets left="30.0"/>
+            <Insets left="30.0" />
          </HBox.margin>
       </HBox>
   </HBox>
 
 
-<HBox alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="0">
+<HBox alignment="CENTER_RIGHT" style="-fx-padding: 10px;" stylesheets="@design.css" GridPane.columnIndex="3" GridPane.rowIndex="0">
     <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefWidth="170.0" promptText="Type in to Search" GridPane.columnIndex="3" GridPane.rowIndex="0" />
       <GridPane.margin>
          <Insets right="8.0" />

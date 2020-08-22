@@ -21,13 +21,13 @@
  - [x] Delete selected contact
  - [x] Sort contacts
  - [x] Search for contact
- - [ ] Recreate UI design
+ - [x] Recreate UI design
  
  ## Bugs fixed 🐛
  - [x] While typing a word on search field, sort can be toggled.
  - [x] After completing search, if sort button is toggled, display sorted data according to choice. 
  - [x] When a sort choice is toggled, if texting on search field, show sorted data.
- - [ ] Make UI more handsome
+ - [x] Make UI more handsome - NOW MORE HANDSOME DESIGN! 💘
    
  ### Contact me 📭
  Derya Antonelli - [Twitter](https://twitter.com/antonelli_a); derya.antonelli@gmail.com
