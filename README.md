@@ -29,7 +29,7 @@
  - [x] When a sort choice is toggled, if texting on search field, show sorted data.
  - [x] Make UI more handsome - NOW MORE HANDSOME DESIGN! 💘
  
- ##Download
+ ### Download ⬇
  You are free to download and use my code.
    
  ### Contact me 📭

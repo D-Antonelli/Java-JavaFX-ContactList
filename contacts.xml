@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contacts>
 <contact>
-	<first_name>Linda</first_name>
-	<last_name>Tylor</last_name>
-	<phone_number>09848837378</phone_number>
-	<notes>Manager</notes>
-</contact>
-<contact>
 	<first_name>Zed</first_name>
 	<last_name>Smith</last_name>
 	<phone_number>09373838</phone_number>
