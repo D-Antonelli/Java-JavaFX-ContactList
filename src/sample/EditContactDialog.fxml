@@ -4,21 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<DialogPane headerText="Edit contact information and press 'OKAY' or 'CANCEL' to go back" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditContactDialog">
+<DialogPane headerText="Edit contact information and press 'OKAY' or 'CANCEL' to go back" stylesheets="@design.css" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditContactDialog">
 <header>
 
 </header>
     <content>
         <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
-            <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label style="-fx-text-fill: #fff;;" text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <TextField fx:id="firstName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label style="-fx-text-fill: #fff;;" text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Phone number:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label style="-fx-text-fill: #fff;;" text="Phone number:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <TextField fx:id="phone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label style="-fx-text-fill: #fff;;" text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <TextArea fx:id="notes" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="alert" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="alert" style="-fx-text-fill: #fff;;" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <font>
                <Font size="14.0" />
             </font></Label>

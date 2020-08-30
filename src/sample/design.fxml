@@ -19,21 +19,21 @@
     </rowConstraints>
     <TableView fx:id="tableView" stylesheets="@design.css" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="1">
         <columns>
-          <TableColumn styleClass="column" fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="First Name">
-          <cellValueFactory><PropertyValueFactory property="firstName"/>
+          <TableColumn fx:id="firstNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" styleClass="column" text="First Name">
+          <cellValueFactory><PropertyValueFactory property="firstName" />
           </cellValueFactory>
           </TableColumn>
-          <TableColumn styleClass="column" fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Last Name">
+          <TableColumn fx:id="secondNameCol" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" styleClass="column" text="Last Name">
             <cellValueFactory><PropertyValueFactory property="lastName" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn styleClass="column" maxWidth="300" minWidth="200" prefWidth="200" sortable="false" text="Phone Number">
+          <TableColumn maxWidth="300" minWidth="200" prefWidth="200" sortable="false" styleClass="column" text="Phone Number">
             <cellValueFactory><PropertyValueFactory property="phoneNumber" />
             </cellValueFactory>
           </TableColumn>
 
-          <TableColumn styleClass="column" maxWidth="800" minWidth="400" sortable="false" text="Notes">
+          <TableColumn maxWidth="800" minWidth="400" sortable="false" styleClass="column" text="Notes">
             <cellValueFactory><PropertyValueFactory property="notes" />
             </cellValueFactory>
           </TableColumn>
@@ -84,7 +84,7 @@
 
 
 <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10px;" stylesheets="@design.css" GridPane.columnIndex="3" GridPane.rowIndex="0">
-    <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefWidth="170.0" promptText="Type in to Search" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+    <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefWidth="170.0" promptText="Type in to Search" style="-fx-border-radius: 0; -fx-background-radius: 30 30 30 30;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
       <GridPane.margin>
          <Insets right="8.0" />
       </GridPane.margin>

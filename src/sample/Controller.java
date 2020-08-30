@@ -224,6 +224,7 @@ public class Controller {
         //set confirmation alert
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete contact?");
         alert.setHeaderText("Delete contact");
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("design.css").toExternalForm());
 
         Optional<ButtonType> optional = alert.showAndWait();
 
