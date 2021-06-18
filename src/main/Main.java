@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import datamodel.ContactData;
 import javafx.application.Application;
@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("design.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/userinterface/Main.fxml"));
         primaryStage.setTitle("Manage Contact List");
         primaryStage.setScene(new Scene(root, 1000, 450));
         primaryStage.show();

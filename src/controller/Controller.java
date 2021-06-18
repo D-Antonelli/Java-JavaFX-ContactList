@@ -1,4 +1,4 @@
-package sample;
+package controller;
 
 import datamodel.Contact;
 import datamodel.ContactData;
@@ -52,7 +52,6 @@ public class Controller {
     private boolean sortIsActive = false;
 
     public void initialize() {
-        //ContactData.getInstance().getContacts().clear();
         //display row data
 
         tableView.setItems(list);
@@ -132,7 +131,7 @@ public class Controller {
 
 
     public void handleAdd()  {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewContactDialog.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/userinterface/NewContactDialog.fxml"));
         Dialog<ButtonType> dialog = new Dialog<>();
 
         try {
@@ -173,7 +172,7 @@ public class Controller {
         }
 
     public void handleEdit()  {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditContactDialog.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/userinterface/ContactEditDialog.fxml"));
         Dialog<ButtonType> dialog = new Dialog<>();
 
         try {
@@ -224,7 +223,7 @@ public class Controller {
         //set confirmation alert
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete contact?");
         alert.setHeaderText("Delete contact");
-        alert.getDialogPane().getStylesheets().add(getClass().getResource("design.css").toExternalForm());
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/userinterface/design.css").toExternalForm());
 
         Optional<ButtonType> optional = alert.showAndWait();
 

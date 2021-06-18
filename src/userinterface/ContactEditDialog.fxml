@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<DialogPane headerText="Edit contact information and press 'OKAY' or 'CANCEL' to go back" stylesheets="@design.css" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EditContactDialog">
+<DialogPane headerText="Edit contact information and press 'OKAY' or 'CANCEL' to go back" stylesheets="@design.css" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditContactDialog">
 <header>
 
 </header>

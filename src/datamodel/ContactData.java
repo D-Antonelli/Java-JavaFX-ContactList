@@ -44,26 +44,29 @@ public class ContactData {
     }
 
     // *** Add methods to add/delete/access contacts here ***
-
     public ObservableList<Contact> getContacts() {
         return FXCollections.unmodifiableObservableList(contacts);
     }
 
+    // Time complexity: O(1)
     public void addNewContact(Contact contact) {
         contacts.add(contact);
     }
 
+    // O(n)
     public void deleteContact(Contact contact) {
         int index = getIndex(contact);
         if(index >= 0) {
-            contacts.remove(contacts.get(index));
+            contacts.remove(index);
         }
     }
 
+    // O(n)
     private int getIndex(Contact contact) {
         return contacts.indexOf(contact);
     }
 
+    // O(n)
     public void editExistingContact(Contact oldContact, Contact newContact) {
         int found = contacts.indexOf(oldContact);
 

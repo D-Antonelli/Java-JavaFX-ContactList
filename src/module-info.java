@@ -3,6 +3,8 @@ module SimpleContactApplication {
     requires javafx.controls;
     requires java.xml;
 
-    opens sample;
+    opens controller;
+    opens userinterface;
     opens datamodel;
+    opens main;
 }
